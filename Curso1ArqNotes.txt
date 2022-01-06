@@ -67,11 +67,17 @@ Promover comunicacao do time, envolvendo e delegando as decisoes de arquitetura 
 Obs.: ser um bom orador para envolver o time, nao da para ser introspectivo, precisa explicar o que quer, para que as pessoas possam te defender caso necessario.
 para que as pessoas saibam o porque de voce esta ali.
 
+Aula 9:
 Requisitos tecnicos(Hard skills):
-Profundo conhecimento em programacao e componentizacao.
-Componentizacao: transformar um conjunto de algoritmos e tecnologias em um componente responsavel.
-ter experiencias solidas em projetos, atuar ao lado de outros arquitetos, conquistar cases de sucesso.
+1- Profundo conhecimento em programacao e componentizacao.
+	Componentizacao: transformar um conjunto de algoritmos e tecnologias em um componente responsavel.
+	ter experiencias solidas em projetos, atuar ao lado de outros arquitetos, conquistar cases de sucesso.
 
-dominar amplamente alguma plataforma de desenvolvimento, frameworks, ferramentas e modelagem tecnica.
-
+2- dominar amplamente alguma plataforma de desenvolvimento, frameworks, ferramentas e modelagem tecnica.
 exemplo eu: plataforma web, frameworks: .net, angular, ferramentas: IDE`s, modelagem tecnica: EA, Bizzagi, Power Designer
+
+3- Conhecer abordagens de arquitetura e padroes para a solucao de problemas. (para a area de atuacao)
+Obs.: Arquitetura web e diferente de uma arquitetura industrial por exemplo.
+
+4- Conhecer as tecnicas de design de codigo e qualidade para permitir uma facil manutencao e testabilidade.
+um arquiteto pode entregar um template ou uma primeira funcionalidade codificada para ser usado como referencia e doutrinacao dos demais membro dos times.
