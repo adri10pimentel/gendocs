@@ -1,4 +1,9 @@
-ArquAula 6:
+Aula 1:
+Aula 2:
+Aula 3:
+Aula 4:
+Aula 5:
+Aula 6:
 Arquiteto de Software
 
 Objetivo: Projetar aplicacoes utilizando conceitos de arquitetura e 
@@ -45,3 +50,28 @@ A IASA reconhece a existencia deles, porem os entende como customizados para ate
 
 Aula 8:
 Perfil do Arquiteto de SW
+
+Objetivo principal: projetar uma solucao compativel com os requisitos atuais da corporacao, que tenha flexibilidade suficiente 
+para comportar mudancas futuras e/ou novos requisitos resultantes de sua evolucao ao longo do tempo.
+
+ser adaptavel a cultura da empresa
+Para empresas conservadoras: muitos anos de existencia, multinacional, nao gere revolucoes se adapte ao que existe.
+Para empresas startups: buscar inovacao, se adaptar ao budget restrito e exigem resultado atraves de tecnologias modernas.
+
+ser responsavel pela qualidade tecnica do entregavel, atuar no apoio tecnico de toda equipe e ajudar nas decisoes necessarias.
+Obs: nao so esperar que o time atenda a qualidade tecnica esperada, acompanhar e ajustar e reconhecer as limitacoes tecnicas da equipe,
+muitas vezes tem de ser instrutor para prover treinamentos para a equipe, buscar ter um backup de si mesmo, alguem que consiga assumir seu lugar,
+sucessor, caso voce venha a subir de nivel para C-level, ajudar a equipe a tomar decisoes, a equipe e um organismo vivo, sinergia entre o arquiteto e a equipe.
+
+Promover comunicacao do time, envolvendo e delegando as decisoes de arquitetura com toda a equipe.
+Obs.: ser um bom orador para envolver o time, nao da para ser introspectivo, precisa explicar o que quer, para que as pessoas possam te defender caso necessario.
+para que as pessoas saibam o porque de voce esta ali.
+
+Requisitos tecnicos(Hard skills):
+Profundo conhecimento em programacao e componentizacao.
+Componentizacao: transformar um conjunto de algoritmos e tecnologias em um componente responsavel.
+ter experiencias solidas em projetos, atuar ao lado de outros arquitetos, conquistar cases de sucesso.
+
+dominar amplamente alguma plataforma de desenvolvimento, frameworks, ferramentas e modelagem tecnica.
+
+exemplo eu: plataforma web, frameworks: .net, angular, ferramentas: IDE`s, modelagem tecnica: EA, Bizzagi, Power Designer
