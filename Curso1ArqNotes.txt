@@ -1,0 +1,47 @@
+ArquAula 6:
+Arquiteto de Software
+
+Objetivo: Projetar aplicacoes utilizando conceitos de arquitetura e 
+boas praticas de desenvolvimento.
+
+Artefatos entregaveis: Frameworks, arquiteturas(definindo a arquitetura) / modelos de referencia, 
+analise de cenarios / desafios tecnicos.
+O Arquiteto de SW e como se fosse uma biblioteca de solucoes de SW para o cenario e toma a 
+melhor decisao com bate na estrategia da empresa e no desafio tecnico.
+Qual componente, tecnologia e abordagem sera usada.
+Conceitos chave: Qualidade, Flexibilidade, Performance, Reuso, Testabilidade,
+Escalabilidade e Seguranca.
+
+Ele precisa saber o custo da ferramenta, tem uma serie de requisitos pessoais e pode nao ser para todo o desenvolvedor.
+saber lidar com restricoes e proibicoes.
+
+Figura escolhida:
+Arquitetura hexagonal aka: arquitetura de portas e adapters
+Entenda tudo disso, mas use somente o que for necessario.
+
+Primary/Driving Adapters																				Secondary/Driven Adapters
+																	Command Query Bus		|		Event Bus
+USER		HTTP
+			|					-> ADMIN GUI Views & Controllers 	-> Queries	|					CQBUS->Message BUS->Message Queue Adapter->Message Queue
+COMPUTER	|		WEB SERVER	-> SOAP/REST Controllers			-> Commands	|					EBUS->Event BUS Adapter-|^
+			|					-> CONSUMER GUI Views & Controllers	-> Services	-> Application Core	Notifications->SMS Adapter->SMS Server
+USER		|																	|								 ->Email Adapter->Mailing Server
+																				|					Shared Kernel
+USER	->	CLI-command line interface	-> console commands						|					Search->Search adapter->Search Engine(ie. Elasticsearch)
+																									Persistence->ORM Adapter->ORM->MySQL Adapter->PRD DB(MySQL)
+																																|->SqLite Adapter->TST DB(SqLite)
+																																
+																		User Interface		|		Infrastructure
+																		
+Aula 7:
+Outros tipos de arquitetos:
+
+Arquiteto de dados
+Arquiteto de TI -> data centers, etc.
+Arquiteto de nuvem
+Etc...
+
+A IASA reconhece a existencia deles, porem os entende como customizados para atender a necessidades especificas das empresas.
+
+Aula 8:
+Perfil do Arquiteto de SW
