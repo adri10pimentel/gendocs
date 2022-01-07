@@ -202,3 +202,16 @@ a abstracao pode facilitar e criar regras para que suas classes nao sejam criada
 
 simplificando abstracao eh: criar conceitos genericos que possam ser abstraidos por outras classes.
 
+Aula 16:
+Poliformismo
+
+Poli - muitos, morfismo - comportamento
+
+CafeteiraExpressa e um eletrodomestico, que tem comportamentos privados exemplo: aquecer a agua e moer os graos do cafe.
+
+override - sobreescrever o comportamento de uma classe base para implementar o comportamento, por conta da classe abstrata Eletrodomestico eu sou abrigado a
+sobreescrever e implementar.
+
+na classe abstrata podemos ter metodos padrao que nao sejam abstratos e que serao herdados, porem a sobreescrita destes metodos nao e permitida nas classes herdadas.
+se quisermos implementar algo e permitir sobreescrever, precisamos adicionar o modificador virtual.
+
