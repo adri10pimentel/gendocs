@@ -191,3 +191,14 @@ ligando
 desligando
 
 Obs.: quando temos um metodo abstrato nao somos obrigados a implementar seus comportamentos.
+quando eu defindo isso, a classe filha vai ser responsavel por implementar seus proprios comportamentos de acordo com seu funcionamento.
+Quando marcamos uma classe com o modificador abstrato estamos proibindo a instancia-la, esta classe soh podera ser herdada, nunca instanciada.
+
+se temos a missao que criar uma super classe para heranca, o conceito de abstract e essencial.
+
+o conceito de abstracao eh a base para o polimorfismo e encapsulamento.
+
+a abstracao pode facilitar e criar regras para que suas classes nao sejam criadas de forma errada.
+
+simplificando abstracao eh: criar conceitos genericos que possam ser abstraidos por outras classes.
+
