@@ -68,7 +68,7 @@ Obs.: ser um bom orador para envolver o time, nao da para ser introspectivo, pre
 para que as pessoas saibam o porque de voce esta ali.
 
 Aula 9:
-Requisitos tecnicos(Hard skills):
+Requisitos tecnicos "Hard skills":
 1- Profundo conhecimento em programacao e componentizacao.
 	Componentizacao: transformar um conjunto de algoritmos e tecnologias em um componente responsavel.
 	ter experiencias solidas em projetos, atuar ao lado de outros arquitetos, conquistar cases de sucesso.
@@ -81,3 +81,113 @@ Obs.: Arquitetura web e diferente de uma arquitetura industrial por exemplo.
 
 4- Conhecer as tecnicas de design de codigo e qualidade para permitir uma facil manutencao e testabilidade.
 um arquiteto pode entregar um template ou uma primeira funcionalidade codificada para ser usado como referencia e doutrinacao dos demais membro dos times.
+
+Aula 10:
+Requisitos pessoais "Soft skills"
+
+Lideranca - envolve pessoas, lider natural, onde for colocado, com o tempo ele vai liderar aquelas pessoas, nao e apenas conquistar mas sim envolver, um lider 
+tem de ser respeitado nao porque ele tem poder ou por estar a frente, mas porque ele e a melhor pessoa para escolher o destino.
+
+Comunicacao - um lider precisa ser comunicativo, uma pessoa nao comunicativa nao dificilmente vai ter lideranca, mesmo que lideranca nao esteja ligada a ser 
+apenas um bom comunicador, investir tempo para aperfeicoar o meu nivel de comunicacao, comunicar com pessoas que me lideram, comunicacao fluente e autoconfianca.
+
+Proatividade - ele nao pode esperar as coisas acontecerem, precisa prever os acontecimentos, estar preparados antes de ocorrer e tomar iniciativa, antenado e 
+sempre ligado no que vai acontecer.
+
+mindset empreendedor - mente empreendedora, postura de dono, buscar formas rentaveis de otimizar o uso de recursos e maximizar resultados da empresa, como se eu
+fosse a pessoa que esta perdendo dinheiro.
+
+humildade - ter cuidado como se porta, reconhecer suas limitacoes, falhas e defeitos, nunca se colocar como quem sabe de tudo, manda e desmanda.
+
+resumo:
+	tomar boas decisoes
+	estar aberto a criticas e sugestoes
+	ser um profundo pesquisador
+	ser didatico
+	saber delegar tarefas
+	saber questionar: colocar em palavras a sua visao para que a pessoa reflita aquilo que esta colocando sem gerar confronto
+	saber conduzir as discussoes->saber a hora de comecar a falar, parar de falar, dar abertura para as pessoas, poderar os pontos da discussao
+	saber conversar com diferentes niveis hierarquicos
+	estar sempre aberto a novas tecnologias ->Leitura, eventos, etc...
+	estar atualizado com o mercado
+	ter maturidade e equibilibrio emocional->nunca demonstrar fraqueza ou emocao agressiva
+	pensamento estrategico
+	reconhecer e assumir os proprios erros e de sua equipe->se coloque a frente e proteja seus liderados
+	
+Aula 11:
+Mitos sobre o arquiteto de software
+
+1-O arquiteto nao programa, apenas projeta, documenta e lidera.
+2-Um desenvolvedor senior pode assumir o papel de arquiteto.
+3-O arquiteto e um desenvolvedor com muito tempo de experiencia, "arquiteto de cadeira".
+4-Para ser um arquiteto basta estudar tecnicas de arquitetura de software.
+5-O arquiteto trabalha em ambiente isolado ou diferenciado da equipe.
+6-O arquitet o e uma autoridade tecnico e nao deve ser questionado.
+7-O arquiteto e um gerente tecnico.
+8-O arquiteto e um profissional com graducao em arquitetura de software.
+9-O arquiteto e um profissional que esta na liderenca de um projeto.
+Obs.: cobranca de prazo, etc, e um acumulo de funcao que o arquiteto deve aceitar.
+
+Aula 12:
+Orientacao a objeto - OOP
+
+Pilares fundamentais:
+
+Estado, Comportamento, abstracao, Heranca, Poliformismo, Encapsulamento.
+
+E essencial possuir um claro conhecimento dos principios da orientacao a objetos para poder aplicar as melhores
+praticas de design de codigo, padroes e abordagens de arquitetura.
+
+Objetivo: buscar o baixo acoplamento e a alta coesao.
+
+Acoplamento: dependencia direta entre um objeto e outro.
+Coesao: Objetos executando uma unica responsabilidade livres de uma dependencia direta com um outro objeto.
+
+Aula 13:
+Estado e comportamento
+
+Classe: estrutura de codigo que tem a funcao de mapear um objeto do mundo real(uma pessoa, um objeto real, etc).
+Objeto: quando temos uma classe  instanciada com valores na memoria.
+Estado: estado e representado pelas propriedades da classe quando ela contem x informacoes ela esta em um estado x.
+Comportamento: e quando geramos uma nova informacao atraves da propria classe, ex. metodo calcularIdade, apos receber a informacao data de nascimento..
+Comportamento2: o metodo tambem pode alterar o estado da classe, por exemplo um metodo pode alterar o nome da pessoa.
+
+resumo:
+estado -> entender que a classe possui propriedade que possuem informacoes que estao na instancia da classe(objeto).
+comportamento -> sao metodos que processam a informacao(gerando novas informacoes) ou que alteram o estado da entidade.
+
+metodo -comportamento
+estado -propriedades
+
+Aula 14:
+Heranca
+
+Funcionario herdando de pessoa
+
+O Funcionario e uma pessoa, quando herdamos de pessoa estamos extendendo a classe pessoa com a especializacao de funcionario.
+poderiamos estender por exemplo a classe pessoa como cliente, pois ambos sao pessoas.
+
+nem sempre a heranca deve ser utilizada.
+
+toda ver que herdamos de uma outra classe, estamos absorvendo o estado e os comportamentos daquela outra classe.
+
+para usar a heranca deve usar sempre a frase: a classe que esta herdando eh um classe que esta sendo herdada?
+mesmo que o criterio eh um funcione, temos que avaliar se vale ou nao a pena usar heranca ou se estamos somente economizar linhas de codigo na implementacao.
+
+nas proximas aulas vamos entender quando e como utilizar heranca.
+
+Aula 15:
+Abstracao
+
+abstracao eh um pilar suportado pela heranca, ou seja oferecer um conjunto que estados e comportamentos que abstraem uma certa especializacao.
+
+exemplo:
+classe abstrata eletrodomestico
+todo eletrodomestico tem:
+nome
+voltagem
+e se comporta:
+ligando
+desligando
+
+Obs.: quando temos um metodo abstrato nao somos obrigados a implementar seus comportamentos.
