@@ -215,3 +215,13 @@ sobreescrever e implementar.
 na classe abstrata podemos ter metodos padrao que nao sejam abstratos e que serao herdados, porem a sobreescrita destes metodos nao e permitida nas classes herdadas.
 se quisermos implementar algo e permitir sobreescrever, precisamos adicionar o modificador virtual.
 
+Aula 17:
+Encapsulamento
+
+Oque eh?
+Encapsular comportamentos atraves da exposicao de metodos publicos e privados.
+
+Encapsulamento e fazer uso de metodos de uma classe sem saber como ele internamente funciona.
+
+o ponto chave do encapsulamento sao os modificadores de acesso.
+
