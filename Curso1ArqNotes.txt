@@ -225,3 +225,24 @@ Encapsulamento e fazer uso de metodos de uma classe sem saber como ele intername
 
 o ponto chave do encapsulamento sao os modificadores de acesso.
 
+Aula 18:
+Interface x Implementacao
+
+Sempre e melhor defender o uso de uma interface do que uma simples implementacao pura.
+
+A interface e uma especie de contrato, toda a classe que implementa uma interface e obrigado a implementar os metodos da interface, isso pode
+ser confundido com o uso da classe abstrata pois apesar da classe abstrata tambem forcar a implementacao de metodos, tambem implementa alguns comportamentos
+derivados, ja a interface e um contrato simples, ou seja, se vc esta implementando esta interface vc e obrigado a fazer a implementacao dos metodos nela presentes.
+
+tem de cumprir o contrato.
+podemos criar uma classe fake que nao vai realizar a acao.
+
+implementacao, chamar a classe.
+
+na implementacao, voce usa classes concretas e em caso de alteracao a classe quebra.
+a classe que implementa e a classe que esta sendo implementada podem quebrar.
+
+ao usar a abstracao com interfaces, o codigo nao quebra em caso de modificacao de uma classe que implementa a interface, porque esta abstraido atraves do contrato
+e nao sendo implementado atraves da implementacao forte da classe concreta.
+
+no caso de alteracao no construtor, resolver atraves da injecao de dependencia como ele ira ensinar mais a frente no curso.
