@@ -246,3 +246,35 @@ ao usar a abstracao com interfaces, o codigo nao quebra em caso de modificacao d
 e nao sendo implementado atraves da implementacao forte da classe concreta.
 
 no caso de alteracao no construtor, resolver atraves da injecao de dependencia como ele ira ensinar mais a frente no curso.
+
+Aula 19:
+Heranca x Composicao
+
+Exemplo de heranca->PessoaFisica herda de Pessoa
+public clase PessoaFisica : Pessoa
+
+Obs.: conceito chave para pessoa, usar o criterio: eh um... no caso Pessoa Fisica e uma pessoa.
+
+//e adiciona o atributo cpf.
+public string cpf;
+
+Exemplo de composicao->
+public class PessoaFisica2
+public Pessoa pessoa;
+public string cpf;
+
+Quando definir entre heranca e composicao?
+R: no solid existe um principio que explica se uma classe deve herdar outra ou nao.
+
+Resposta para o momento: desde de que a classe pai  nao sofra nenhuma deformacao de sua proposta, se a classe pai comecar a ser alterada
+e criada caracteristicas que nao sao inerentes a sua proposta, eh um sinal que estamos forcando uma situacao que nao era pra acontecer, tbm e importante
+observar que as caracteristicas que a classe pai possui tambem tem de atender o que a classe filho espera, uma heranca correta exige harmonia.
+
+caso 2:
+Repositorio Generico x Repositorio Especializado
+
+quando herdamos, temos um acoplamento mais forte do que quando abstraimos.
+
+com composicao podemos nos resgaurdar e nao expor metodos desnecessarios.
+
+Obs.: prefira sempre uma composicao a uma heranca, pois favorece ao baixo acoplamento e alta coesao.
