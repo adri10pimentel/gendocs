@@ -350,3 +350,72 @@ em antagonismo a palavra solid que nos remete um codigo solido, forte, inquebrav
 exemplo: alteracao no cadastro de cliente quebrando/impactando o processo de vendas.
 
 ponto chave: evitar problemas em tempo de escrita de codigo.
+
+Aula 21:
+SRP - Single responsability principle
+
+"A class should have one, and only one reason to change".
+"Uma classe so pode ter, e apenas um motivo para ser modificada".
+
+este e o principio mais simples e mais importante do solid, a responsabilidade definida se da atraves do que a classe tem de fazer, exemplo: uma classe que envia
+email, porque ela sera alterada um dia? R: porque neste dia a forma de se mandar email mudou, se alem de enviar email a classe tambem tiver de formatar texto, ela
+tambem tiver controle texto, imagem, anexo, ela vai ter mais de um motivo para mudar.
+
+O principio da responsabilidade unica nao se aplica apenas a uma classe, se aplica a tudo, uma camada de negocios so pode tratar de negocios, nao se preocupar com infra
+e etc...
+
+nao quer dizer que uma classe so pode ter um metodo, esta mais no porque a classe precisa ser criada.
+
+uma classe que envia email pode ter varios metodos que ajudam a compor o envio de email, mas nao pode fugir da responsabilidade que e o envio de emcil.
+
+sempre pensar: estamos invadindo a responsabilidade que deveria ser de outra classe?
+
+exemplos:
+
+violacao->
+temos a classe cliente com suas propriedades para definicao de estado, e temos um comportamento adicionar cliente, ou seja uma classe de entidade que faz a
+propria persistencia e envio de email, e isso passa a sua propria responsabilidade.
+
+o problema maior e que e dificil de testar e identificar onde ocorre a falha.
+
+solucao->
+obs.: nao e a solucao ideal pois precisa dos demais principios do solid.
+
+gerar mais classes:
+cliente->possui os atributos e um comportamento que e a validacao do cliente atraves de verificar o email e o cpf validos.
+clienteRepository-> metodo adicionarCliente que conecta com o banco de dados e faz a persistencia,
+clienteService -> metodo que orquestra tudo
+cpf -> possui o estado e o comportamento de um cpf
+email -> possui o estado e o comportamento de um email
+emailService -> efetua o disparo de um email
+
+pergunta: mas a classe clienteService nao esta acumulando responsabilidades?
+R: nao, a proposta dela e ser um workflow e esta e a sua responsabilidade.
+
+Obs.: podemos afirmar que todos os demais principios sao para atender o SRP, e no final de todos os principios vamos ver que o SRP foi otimizado.
+
+este e o principio mais simples e mais importante, ele nao exige nenhuma tecnica, basta apenas separar.
+
+Aula 22:
+OCP - Open closed principle
+
+ponto chave: esternder a classe principal em funcionalidades secundarias.
+
+Aula 23:
+LSP - Liskov substitution principle
+
+Barbara Liskov foi a primeira mulher dos estados unidos a obter um phd em ciencia da computacao.
+
+ponto chave: subclasses devem ser substituiveis por suas superclasses.
+
+"se nada como um pato, voa como um pato e precisa de baterias, provavelmente voce possui um problema de abstracao"
+entendendo:
+
+o pato voa e nada, o pato de banheira e uma especializacao do pato, se no pato de banheira tiver de colocar pilhas e seu estado e comportamento nao puderem
+ser substituidos pelo pato original, e porque existe uma desconexao com o pato original de onde houve a heranca.
+
+O LSP e a prova real da heranca.
+
+exemplo: quadrado x retangulo
+
+uma das formas de resolver o LSP e implementando o OCP.
