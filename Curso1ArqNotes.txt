@@ -399,7 +399,7 @@ este e o principio mais simples e mais importante, ele nao exige nenhuma tecnica
 Aula 22:
 OCP - Open closed principle
 
-ponto chave: esternder a classe principal em funcionalidades secundarias.
+ponto chave: estender a classe principal em funcionalidades secundarias.
 
 Aula 23:
 LSP - Liskov substitution principle
@@ -419,3 +419,202 @@ O LSP e a prova real da heranca.
 exemplo: quadrado x retangulo
 
 uma das formas de resolver o LSP e implementando o OCP.
+
+meu insight:
+se o seu pai que era sapateiro faleceu e deixou uma sapataria, o filho que vai cuidar dela 100%(herdar de fato) tem de ser sapateiro + administrador + atendente.
+sendo sapateiro + administrador + atendente (classe fechada), se o filho for sapateiro + administrador + atendente e skatista(classe estendida) ja atende,
+o que ele nao pode e nao ser sapateiro ou adminstrador ou atendente, ele pode ate herdar e tocar o negocio, mas um principio estara sendo ferido e havera um
+debito na operacao.
+
+Aula 24:
+ISP - Interface segregation principle
+
+"States that no clients should be forced to depend on methods it does not use"
+"Clientes nao devem ser forcados a depender de metodos que nao usam".
+
+clientes = classes
+uma vez que usamos interfaces nos forcamos as classes a implementar metodos e se os metodos nao sao obrigatorios para determinada classe, ele nao deve ser 
+implementado.
+
+ponto chave: muitas interfaces especificas sao melhores que uma interface unica.
+
+Violacao:
+Interface ICadastro
+	void ValidarDados();
+	void SalvarBanco();
+	void EnviarEmail();
+	
+classe implementando ICadastro:
+CadastroCliente : ICadastro
+	void ValidarDados();
+	void SalvarBanco();
+	void EnviarEmail();
+	
+outra classe implementando ICadastro:
+CadastroProduto : ICadastro
+	void ValidarDados();
+	void SalvarBanco();
+	void EnviarEmail(); // nao existe um endereco de e-mail para disparar em caso de um novo produto cadastrado.
+	
+	void EnviarEmail(){
+		throw new NotImplementedException("metodo nao implementado");
+	}
+	
+Solucao:
+Interface ICadastroCliente
+	void ValidarDados();
+	void SalvarBanco();
+	void EnviarEmail();
+	
+Interface ICadastroProduto
+	void ValidarDados();
+	void SalvarBanco();
+	
+podemos evoluir este principio melhorando a generalizacao, exemplo:
+
+criar a interface ICadastro com o seguinte metodo:
+Interface ICadastro
+	void SalvarBanco();
+	
+e fazer as interfaces ICadastroCliente e ICadastroProduto, elas irao forcar a implementacao sobre a classe que as herdar e nao precisam estar explicitadas como
+demonstrado abaixo.
+
+Interface ICadastroCliente : ICadastro
+	void ValidarDados();
+	void EnviarEmail();
+	
+Interface ICadastroProduto : ICadastros
+	void ValidarDados();
+	
+Obs.: nao estamos fugindo ou negligenciando a especializacao, na verdade estamos apenas forcando um padrao atraves de uma interface mais generica que neste caso e
+"para cadastrar algo precisamos salvar no banco de dados".
+
+por mais que seja um principio simples, este principio e o precursor da inversao de controle.
+
+Aula 25:
+DIP - Dependendy invertion principle aka inversao de dependencia ou inversao de controle.
+
+"High level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. details should depend on
+abstractions."
+
+"Modulos de alto nivel nao devem depender de modulos de baixo nivel, ambos devem depender de abstracoes; abstracoes nao devem depender de detalhes, detalhes devem
+depender de abstracoes."
+
+ponto chave: dependa de uma abstracao e nao de uma implementacao.
+
+Explicacao: este principio e o mais importante e e o que da mais sentido ao SOLID, pois sem o DIP o SRP perde um pouco de proposito, pois voce precisa inverter o
+controle para ter responsabilidade unica.
+
+Violacao:
+public class ClienteService
+{
+	public string AdicionarCliente(Cliente cliente)
+	{
+		if(!cliente.Validar())
+			return "dados invalidos";
+			
+		var repo = new ClienteRepository(); //aqui esta a violacao, pois e uma implementacao.
+		repo.AdicionarCliente(cliente);
+		
+		EmailService.Enviar("empresa@empresa.com", "cliente@cliente.com",...);
+		
+		return "cliente cadastrado com sucesso!";
+	}
+}
+
+ou seja, se a classe ClienteRepository mudar a ClienteService quebra, e a classe ClienteService nao deve ser obrigada a saber como criar uma instancia da 
+ClienteRepository, isso e um acoplamento classico, pois ClienteRepository e um modulo de baixo nivel comparado ao ClienteService.
+
+ClienteRepository esta mais proximo a infra e banco de dados, enquanto ClienteService esta mais proximo ao negocio e as regras de negocio.
+
+principio sendo ferido: um modulo de alto nivel nao deve depender de um modulo de alto nivel.
+
+Solucao:
+
+usamos isp para definir interfaces, pois interfaces especificas sao melhores que uma unica interface.
+
+Interaces:
+IClienteRepository
+	void AdicionarCliente(Cliente cliente);
+
+IClienteService
+	void AdicionarCliente(Cliente cliente);
+	
+IEmailService
+	void EnviarEmail(string de, string para, string assunto, ...);
+	
+explicacao:
+todas as interfaces que tem algum tipo de acao e nao sao uma entidade possuem uma interface para representar o contrato, obrigacao e responsabilidade da classe.
+
+desta forma alteramos a classe ClienteService:
+
+public class ClienteService : IClienteService
+{
+	private readonly IClienteRepository _clienteRepository;
+	private readonly IEmailService _emailService;
+	
+	public ClienteService(IClienteRepository clienteRepository, IEmailService emailService){
+		_clienteRepository = clienteRepository;
+		_emailService = emailService;
+	}
+
+	public string AdicionarCliente(Cliente cliente)
+	{
+		if(!cliente.Validar())
+			return "dados invalidos";
+			
+		_clienteRepository.AdicionarCliente(cliente);
+		
+		_emailService.Enviar("empresa@empresa.com", "cliente@cliente.com",...);
+		
+		return "cliente cadastrado com sucesso!";
+	}
+}
+
+explicacao 1: por causa do contrato da interface IClienteService somos obrigados a implementar AdicionarCliente se nao o codigo nem compila.
+explicacao 2: no inicio do codigo da classe temos 2 interface sendo utilizadas como propriedades, se tentar usar estar interfaces nao vai funcionar
+pois nao tem implementacao, para isso precisamos passar uma instancia de objeto criado que contenha uma implamentacao e estamos fazendo isso atraves da
+injecao de dependencia no construtor.
+
+Injecao de dependencia e uma forma de aplicar o DIP(aka inversao de controle)
+
+explicacao construtor:
+eu declarei como parametros uma instancia do objeto ClienteRepository e uma instancia do objeto EmailService mas eu os declarei com uma interface e nao de suas 
+classes, ou seja estou dependendo de uma abstracao e nao da implementacao.
+
+se voce nao e familiarizado com a injecao de dependencia e cair no codigo, e der um go to definition(F12) nao vai encontrar o codigo da implementacao e isso esta
+correto, este codigo esta abstraido, nao existe uma relacao direta entre a interface e a classe, isso esta reforcando o principio dependa de interfaces e nao de
+classes.
+
+nao conseguimos criar uma instancia de ClienteService se nao passarmos as instancias e essa e a forma correta, pois invertemos o controle.
+
+meu insight:
+imaginando um cenario de violacao, onde temos a classe ClienteService que precisa cadastrar novos clientes do banco, entao passamos como parametro o clienteItau
+e chamamos o metodo salvar com estes parametros, mais tarde o itau compra um novo banco menor, e precisamos adicionar estes clientes, para funcionar precisariamos
+fazer um if cliente == clienteBancoMenor e trabalhar de forma a salvar no banco de dados, funciona, porem nao esta aproveitando os beneficios da OOP, pois o controle
+esta dentro da classe implementada.
+
+cenario correto:
+temos o contrato(interface) que especifica o minimo de informacoes necessarias atraves das propriedades(estado) e comportamentos(metodos) necessarios
+para ser um cliente Itau, e dentra ClienteService estamos injetando o ClienteRepository que sabe como salvar cliente que implementem a interface IClienteItau.
+se amanha o banco comprou um banco menor, basta que a classe de cliente do banco menor implemente a interface IClienteItau para que esta possa ser integrada ao
+fluxo existente no IClienteService, podendo ter seus comportamentos especificos e tambem seu estado proprio desde de que atenda minimamente o contrato especificado
+na interface.
+
+explicacao: a injecao de dependencia nao e a unica forma de inverter controle, temos tambem a AOP - Programacao orientada a aspectos, onde e feita a emissao de
+codigo durante a compilacao e existe uma versao de controle.
+
+quando chamamos com a injecao de controle ele diz:
+eu nao sei quem e a classe que ira adicionar o cliente, mas eu tenho um contrato e este objeto esta atendendo ao contrato e isso ja e o suficiente para permitir
+o funcinamento do fluxo.
+
+pegando o gancho:
+meu ClienteRepository que hoje utiliza ado.net para persistir no banco pode ficar intacto caso eu queria testar outro framework de persistencia, por exemplo:
+
+vou criar o clienteRepository2 que ira utilizar Dapper, pois a gestao tecnica decidiu utilizar esta tecnologia e quer testa-la e substituir sem para producao.
+
+neste caso basta que clienteRepository2 atenda ao contrato para integra-lo no fluxo do ClienteService, nao importa como ele ira implementar a persistencia.
+
+conclusao: a classe ClienteService tem apenas uma responsabilidade que e orquestrar a persistencia do cliente no banco de dados, logo se ela e bem especifica, dificilmente
+sera alterada, dando espaco para sempre aplicarmos o principio de OCP(podemos ate vetar sua alteracao atraves do scm - source code versioner).
+
