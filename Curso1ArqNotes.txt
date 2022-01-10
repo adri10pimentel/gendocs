@@ -278,3 +278,11 @@ quando herdamos, temos um acoplamento mais forte do que quando abstraimos.
 com composicao podemos nos resgaurdar e nao expor metodos desnecessarios.
 
 Obs.: prefira sempre uma composicao a uma heranca, pois favorece ao baixo acoplamento e alta coesao.
+
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
+
+Quiz: se em um projeto de AssemblyA esta herdando de uma classe do AssemblyB, quais metodos do AssemblyB serao visiveis na classe derivada do AssemblyA?
+R: metodos que tenham os modificadores public, protected e protected internal.
+
+E em uma classe nao derivada, quais metodos do AssemblyB estarao visiveis?
+R: somente os metodos com o modificador public.
