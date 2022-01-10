@@ -225,6 +225,16 @@ Encapsulamento e fazer uso de metodos de uma classe sem saber como ele intername
 
 o ponto chave do encapsulamento sao os modificadores de acesso.
 
+ref: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
+
+public - acessivel em qualquer codigo pelo propio o por outro assembly que o referencie.
+private - acessivel somente pelo codigo dentro da classe ou estrutura.
+protected - acessivel somente pelo codigo de sua classe ou classe derivada.
+internal - acessivel por qualquer codigo no mesmo assembly mas nao em outro assembly.
+protected internal - acessivel em qualquer codigo no assembly em que foi declarado, mas somente
+em uma classe derivada em outro assembly.
+private protected - tipo ou membro pode ser acessado por tipos derivados da classe declarada em seu proprio assembly.
+
 Aula 18:
 Interface x Implementacao
 
@@ -286,3 +296,57 @@ R: metodos que tenham os modificadores public, protected e protected internal.
 
 E em uma classe nao derivada, quais metodos do AssemblyB estarao visiveis?
 R: somente os metodos com o modificador public.
+
+Aula 20:
+Solid - single responsability principle, open closed principle, Liskov substitution principle, interface segregation principle, dependency invertion principle
+Solid esta ligado a OOP, e algo que tem de ser aplicado o tempo todo durante a codificacao.
+
+SOLID e um acronimo dos 5 primeiros principios da programacao orientada a objetos e design de codigo identificados por Robert C Martin(Uncle Bob) por volta 
+dos anos 2000.
+
+por volta dos anos 2000, Uncle Bob nao criou ou documentou, ele observou os principios destacados por outras pessoas e os unificou como se fosse uma regra 
+de ouro que forma a palavra solid, que representa um codigo solido, forte.
+
+Os principios do SOLID devem ser aplicados para se obter os reais beneficios da programacao orientada a objetos.
+
+nao adianta usar OOP sem utilizar o SOLID, esperando obter algum tipo de beneficio, nao adianta usar somente uma letra ou beneficio, esse nao e um padrao que voce deve escolher ou nao se vai aplicar,
+o solid e o fundamento da Orientacao a objetos.
+
+Os beneficios sao:
+1- facilidade de manter, adaptar e se ajustar a alteracoes de escopo.
+essa frase resume a maior parte das aplicacoes do SOLID, a maior dor das aplicacoes manter, adaptar e ajustar, se nao usamos a escrita de codigo corretamente, 
+podemos nao conseguir entregar software ao mesmo tempo que o mercado espera ou para tornar seu produto competitivo.
+
+2- ser testavel e de facil entendimento.
+para o ser codigo ser testavel ele precisa ser um bom codigo, se ele nao e testavel, e porque nao e um bom codigo, o bom codigo e um codigo de facil entendimento.
+
+3- ser extensivel para extensivel a alteracoes com o menor esforco necessario.
+todos ja devem ter passado por isso, precisar alterar um botao e precisar mexer na aplicacao quase como um todo, pois ela esta toda acoplada.
+isso e um sinal de codigo ruim.
+
+4- fornecer o maximo de reaproveitamento.
+a orientacao a objetos e uma opcao melhor do que a programacao procedural por oferecer mais opcoes de reaproveitamento de codigo, e se o seu codigo nao oferece
+o maximo de reaproveitamento e porque faltou design de codigo por meio dos principios do solid e demais praticas.
+
+5- que permaneca o maximo de tempo possivel em utilizacao.
+se nos ouvirmos "se quiser que eu faca isso na aplicacao vou precisar reescreve-la quase que inteira", o programador que fala isso esta errado ao falar,
+principalmente se ele tiver criado a aplicacao, pois apesar do software precisar de alteracoes para se adaptar, a alteracao deve ser sempre a minima possivel,
+uma aplicacao boa e bem escrita e facil de mexer, tanto de alterar como de acrescentar funcionalidades, o intuito do trabalho e manter o codigo o maximo de tempo
+possivel em utilizacao, ate que ele nao seja mais necessario, o sw so sai de utilizacao quando ele nao e mais necessario.
+
+ele nao deve ser reescrito para tentar atender a uma necessidade que ele falhou em atender pela primeira vez.
+
+Problemas evitados com SOLID:
+1- Dificuldade ma testabilidade / criacao de testes de unidade.
+2- Codigo macarronico / sem estrutura padrao.
+o codigo da sinais, nao encontrar padroes e algo grave.
+3- Dificuldades em isolar funcionalidades.
+muito acoplamento, quando uma classe nao eh so responsavel pelo que ela faz e voce precisa entender tudo aquilo que as outras fazem para que ela faca sentido.
+4- Duplicacao de codigo, uma alteracao precisa ser replicada em N pontos.
+sem isso perdemos o beneficio da reusabilidade.
+5- fragilidade, o codigo quebra facilmente apos alguma mudanca.
+em antagonismo a palavra solid que nos remete um codigo solido, forte, inquebravel.
+
+exemplo: alteracao no cadastro de cliente quebrando/impactando o processo de vendas.
+
+ponto chave: evitar problemas em tempo de escrita de codigo.
