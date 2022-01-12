@@ -122,12 +122,13 @@ Mitos sobre o arquiteto de software
 3-O arquiteto e um desenvolvedor com muito tempo de experiencia, "arquiteto de cadeira".
 4-Para ser um arquiteto basta estudar tecnicas de arquitetura de software.
 5-O arquiteto trabalha em ambiente isolado ou diferenciado da equipe.
-6-O arquitet o e uma autoridade tecnico e nao deve ser questionado.
+6-O arquiteto o e uma autoridade tecnico e nao deve ser questionado.
 7-O arquiteto e um gerente tecnico.
 8-O arquiteto e um profissional com graducao em arquitetura de software.
 9-O arquiteto e um profissional que esta na liderenca de um projeto.
 Obs.: cobranca de prazo, etc, e um acumulo de funcao que o arquiteto deve aceitar.
 
+Modulo OOP
 Aula 12:
 Orientacao a objeto - OOP
 
@@ -350,6 +351,8 @@ em antagonismo a palavra solid que nos remete um codigo solido, forte, inquebrav
 exemplo: alteracao no cadastro de cliente quebrando/impactando o processo de vendas.
 
 ponto chave: evitar problemas em tempo de escrita de codigo.
+
+Modulo SOLID
 
 Aula 21:
 SRP - Single responsability principle
