@@ -916,14 +916,68 @@ Aula 34: Boas praticas
 
 Boas praticas segundo o livro clean code:
 
+	1- Geral
+	
 	Nomes das classes devem ser substantivos e nao conter verbos.
 	Ex.: ClienteRepository
 	
 	Nomes dos metodos devem conter verbos de preferencia no infinitivo
 	Ex.: AdicionarClientes
 	
+	2- Nao seja generico:
+	exemplos a serem evitados->
 	
+	//processa folha de pagamento
+	Processa();
+	
+	//calcula imposto de renda
+	Calcula();
+	
+	Exempos corretos:
+	
+	ProcessarFolhaPagamento();
+	
+	CalcularImpostoRenda();
 
+	Obs.: nao economizou palavras e foi explicito
+	
+	3- Menos e mais
+	
+	"A primeira regra dos metodos e que eles devem ser pequenos, a segunda regra e que eles devem ser menores ainda." 
+	Uncle Bob
+	Obs.: e uma brincadeira para forcar que sejam pequenos.
+	
+	4- Parametros: 
+	
+	metodos <= 20 linhas-> metodo que tem mais de 20 linhas talvez nao esteja errado, mas pode ser um sinal,
+	talvez possa refatora-lo, talvez esteja muito verboso, usando muito if quando poderia usar operador ternario, declarando
+	variaveis que poderiam ser criadas dentro do escopo.
+	
+	linhas <= 100 caracteres -> nao esta escrito na pedra, pode passar um pouco e ser melhor, linhas com mais de 100 caracteres
+	podem ser refatoradas, colocadas dentro de um metodo ou quebradas.
+	
+	classe <= 500 linhas-> pode ter 510, ou 600, mas se estiver muito acima disso, nao e um bom sinal. e indica que pode
+	ser refatorada, indica que a classe pode estar fazendo mais do que sua responsabilidade, ou a responsabilidade pode
+	ser quebrada em outra responsabilidade para complemento.
+	
+	5- Metodos
+	
+	*extraia trechos em metodos privados-> nem tudo que executamos precisa estar publido.
+	*metodos devem fazer apenas 1 coisa, faze-la certa e somente faze-la.
+	*evite muitos parametros-> metodos que recebem 10 parametros, voce pode criar um objeto, nao existe regra
+	para quantidade, mas o recomendavel e no maximo 10 parametros.
+	*nao deixe o metodo mentir, dizendo que faz algo e faz outra de forma escondida->exemplo: ProcessaFolhaPagamento()
+	dentro dele envia um e-mail, mandar email pode ate fazer parte do processamento, mas entao este deve estar na 
+	orquestracao do fluxo.
+	*se o metodo tiver mais de uma responsabilidade extraia em mais metodos->e muito dificil testar metodos que fazem muitas
+	coisas, se ele falhar vai ser dificil entender o motivo.
+	Obs.: Arquivos de classes devem conter apenas 1 classe.
+	*Leia o seu metodo de cima para baixo como uma narrativa, ele deve fazer sentido.
+	*Aplique uma boa identacao-> isso diz respeito a hierarquia do processo.
+	
+	
+	
+	
 Aula 35: Devo comentar meu codigo?
 Aula 36: Tratamento de erros
 
