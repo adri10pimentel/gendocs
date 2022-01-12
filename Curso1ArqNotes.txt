@@ -618,3 +618,59 @@ neste caso basta que clienteRepository2 atenda ao contrato para integra-lo no fl
 conclusao: a classe ClienteService tem apenas uma responsabilidade que e orquestrar a persistencia do cliente no banco de dados, logo se ela e bem especifica, dificilmente
 sera alterada, dando espaco para sempre aplicarmos o principio de OCP(podemos ate vetar sua alteracao atraves do scm - source code versioner).
 
+Aula 26:
+Registro de generics
+Registrando classes genericas no .net core
+
+Aula 27:
+Property injection:
+
+Injecao de dependencia sem usar o construtor, mas por propriedade atraves do conteiner [FromServices]
+Por padrao sempre devemos fazer injecao de dependencia por construtor, mas se
+por algum motivo nao pudermos utilizar em uma determinada classe, temos o recursos
+de injecao por propriedade.
+
+injecao por parametro:
+
+public void Index([FromServices]IClienteService clienteService){
+	clienteService.AdicionarCliente(new Cliente());
+}
+
+existe o recurso, mas o seu uso nao e recomensavel, pois e dificil de testar e
+nao e um bom design.
+
+problemas: pode ocorrer violacao do SRP.
+solucao: isso pode ser resolvido utilizando um design pattern chamado Facade.
+
+Referencia: documentacao do simple injector.
+
+Aula 28:
+Service Locator "Pattern", este e um padrao muito popular e polemico.
+
+private readonly serviceProvider _serviceProvider;
+
+public serviceLocatorController(IServiceProvider serviceProvider)
+{
+	_serviceProvider = serviceProvider;
+}
+
+public void Index(){
+	//retorna null se nao estiver registrado
+	_serviceProvider.GetRequiredService<IClienteService>.AdicionarCliente(new Cliente());
+}
+
+Vantagem:
+E uma forma de localizar seus servicos por conta propria.
+Imagine que nao quero ou nao posso expor todos os registros no meu container.
+Obs.: o serviceProvider nao e interface de um padrao locator, e a interface de service de
+um container de injecao de dependencia, o padrao service locator se da quando fazemos uso dessa
+interface para localizar por conta propria obter acesso aos servicos.
+Desvantagem:
+O padrao service locator nao e recomendavel por conta de dificuldade de testar.
+
+tambem e possivel obter a injecao do serviceProvider por propriedade via [FromServices], este padrao 
+e menos recomendavel ainda.
+
+esse e reconhecido por muitos, inclusive pelo Eduardo Pires como um anti pattern.
+
+
