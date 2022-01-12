@@ -788,13 +788,147 @@ um codigo limpo.
 conseguem entender." Martin Fowler
 
 Aula 32: Desculpas e responsabilidades
+Desculpas classicas:
+	Cronograma apertado -> a escrita de bom codigo deve ser feita o tempo inteiro.
+	ponto chave: perguntar a pessoa se quando esta com pressa ela dirige errado, ou cria os filhos errado,
+	se faz coisas erradas no casamento, se ela faz uma coisa mal feita por causa de tempo, ela pode fazer todas
+	as coisas erradas. -> em fim foi apenas uma desculpa para nao ter se dedidcado na escrita do codigo.
+
+	Meu chefe me pressiona a entregar logo: a pressao realmente existe e pode causar ate problemas psicologicos,
+	mas o ponto chave e: o que voce faz, faz bem feito, nao importa as circunstancias.
+	
+	Quero mostrar produtividade: querer entregar mais codigo, mais rapido, sempre que queremos entregar algo rapido
+	a qualidade tem de a cair, um prato de comida cozinha com pressa pode nao ser bom, escrever um codigo que funcione
+	e que possa ser usado por bastante tempo e que vai dar o minimo de manutencao do que entregar codigo rapido e ruim.
+	por mais que a entrega seja rapida, amanha ou depois outro programador vai ter de atuar nele, a produtividade e falsa
+	e fica mascarada, pois no final o trabalho aumenta.
+	
+	Nao ganho o suficiente para escrever o melhor codigo do mundo!: pior desculpa, se nao esta feliz, precisa procurar
+	outro emprego, o codigo nao traduz o quanto ela ganha, mas sim o profissional que ela e. Um profissional que aceitar
+	entregar codigo ruim, nao e o codigo que e ruim, mas o profissional. se voce aceitar entregar codigo ruim, mesmo que
+	seja dia sim, dia nao, voce esta aceitando ser um profissional ruim as vezes. e isso nao faz sentido, voce nunca vais
+	ser bom 100%.
+	
+	A empresa nao valoriza bom codigo e sim a entrega!: simula uma realidade que nao e verdade, as pessoas que esperam a
+	entrega nao sabem ler o codigo, se soubessem eles valorizariam um bom codigo, neste caso eles avaliam a entrega,
+	mas entregue algo que:
+	1- entregue algo com problema.
+	2- entregue algo que quando precise ser alterado levara o dobro do tempo, ou ate mesmo o tempo que demorou pra fazer tudo.
+	3- entregue algo que sempre tenha algo pendente a ser melhorado.
+	4- entregue algo que tenha falha de performance em funcao do tempo.
+	Na verdade, a empresa valoriza o codigo, mas ela nao sabe medir se o codigo e bom ou nao, eles esperam que voce entregue
+	rapido e bem feito, se entregamo rapido e mal feito, isso nao e um bom sinal e nenhuma empresa valoriza uma entrega
+	rapida e que nao funciona, bom codigo tem de ser escrito independente da empresa, pois ele vai valorizar a sua entrega.
+	Se demoramos mais tempo para entregar um codigo bom do que um codigo mal feito, e um sinal que precisamos evoluir
+	tecnicamente, ate que o tempo para escrever codigo bom e codigo ruim seja o mesmo, podemos ate entregar um codigo que
+	pode ser melhor, nao sendo um codigo ruim.
+	
+	E de quem e a culpa?
+	
+	A culpa e sua, a culpa e nossa, nos como desenvolvedores precisamos ter um papel de militar em favor as boas praticas,
+	nao da para aceitar que programadores entreguem codigo ruim e consigam trocar de emprego e ganhar mais, temos de militar,
+	influenciar as pessoas a sua volta, chame a responsabilidade para si, levando para quem nao conhece como e desenvolver
+	codigo. enquanto houver culpados a culpa e nossa, minha funcao deve ser influenciar as pessoas para que elas virem
+	influenciadores tambem.
+	
+	Verdades que nao lhe dizem:
+	
+	Sua carreira e sua responsabilidade.
+	Leia, estude, pratique -> faca disso um habito.
+	Va a conferencias -> escolha alguns e va, pegar experiencias e networking.
+	Faca cursos -> estimular pessoas a realizar cursos tambem, nao adianta so voce ser capacitado que isso vai ser diluido
+	na sua area.
+	
+	Frizando: nao e da responsabilidade do empregador lhe oferecer cursos, oportunidades ou ate mesmo um projeto com a tecnologia
+	que pretende se especializar, pessoas que fazem isso tem um desempenho muito melhor.
+	
+	"Voce recebe para trabalhar 40 horas por semana resolvendo os problemas da sua emprega e nao os seus" Uncle Bob
+	R: se a empresa te contratou para escrever uma solucao de software e voce nao esta pronto pra isso, e tem de ficar
+	buscando ajuda na internet e em foruns, voce nao esta pronto para isso e voce esta tentando resolver um problema seu.
+	
+	Quando uma empresa te contrata para escrever o codigo e nao para tentar descobrir e aprender enquanto faz.
+	A responsabilidade e sua, resolva problemas com excelencia.
+
+	Quanto custa um codigo ruim?
+	
+	1- Alta rotatividade-> se voce e a pessoa mais capacitada tecnicamente, vai te frustrar e vai buscar algo mais desafiador
+	e se isso acontecer com outras pessoas a empresa vai ter de renovar seus funcionarios e isso vai fazer com que a qualidade
+	caia ao inves de subir.
+	2- Demora nas entregar de novas funcionalidades->codigo ruim e dificil de manter, entender, propor mundancas ou planejar
+	refatoramento.
+	3- Dificuldade na manutencao-> nenhum software bem escrito apresenta dificuldades de manter, pode ate ser complexo,
+	mas nao dificil.
+	4- Alta incidencia de bugs-> e um sinal de que o codigo nao esta legal, pode estar faltando testes ou com pouca qualidade.
+	5- Perda de confianca do cliente-> uma entrega de mal qualidade, a proxima entrega o cliente nao espera algo bom.
+	6- Desmotivacao profissional-> se tivermos de trabalhar com codigo ruim, devemos fazer o nosso melhor.
+	7- Mais tempo depurando do que escrevendo codigo-> se o codigo nao e bom passamos mais tempo depurando do que escrevendo
+	funcionalidades, o custo disso e impactar pessoas, sentimentos, problemas nao mensuraveis e tudo isso pode ser evitados
+	com um pouco de qualidade de codigo e comprometimento, para conseguir isso precisamos assumir os problemas e influenciar
+	outras pessoas e os menos experientes.
+	
+	
+	
 Aula 33: Como medir um bom codigo?
+
+Quais sao os criterios:
+	Linhas de codigo-> codigos ruins apresentam "mal cheiro", nao ha uma quantidade especifica que determina bom ou mal codigo,
+	mas quantidade excessiva em uma funcionalidade simples indica algo de errado, exemplo: um cadastro de cliente com 5 mil linhas
+	e no minimo estranho.
+	
+	Numero de metodos: tambem nao ha como definir uma quantidade ideal, e importante avaliar a responsabilidade da classe para
+	identificar se temos poucos ou muitos metodos em uma classe.
+	
+	Numero de classes: dada uma aplicacao que faz muita coisa com poucas classes, da pra ver que tem problemas, pois o
+	desenvolvedor pode nao ter separado as responsabilidades e programou de forma procedural sem usar a orientacao a objetos.
+	
+	Linhas de codigo por metodo: um determinado metodo deveria ter algumas linhas de codigo como limite, se fugir deste padrao
+	o mesmo pode ser simplificado.
+	
+	Complexidade ciclomatica: excesso de if`s dentro de um codigo, isso e dificil de testar, alto nivel de complexidade
+	demonstra que seu codigo nao foi bem escrito.
+	
+	Numero de estruturas de decisao: outras estruturas alem do if em exagero representam um codigo mais escrito, o programador
+	que nao tem dominio total da linguagem ou do framework tende a ser o mais simplista possivel, buscando resolver tudo atraves
+	do if/else, ele vai criar codigos muito longos e de alta complexidade.
+	
+	Nomes significativos(que revelem especifidade)!:
+	
+	Escolha nomes que revelem a intencao!-> o nome de uma classe, camada ou metodo deve demonstrar porque ele existe, o que faz e 
+	como e usado.
+	
+	escrever codigo de maneira que as pessoas possam entender.
+	
+	*Utilizar nomes faceis de encontrar
+	*Nomes pronunciaveis
+	*Evite siglas ou acronimos
+	*Nao economize em palavras-> nao tenha medo de escrever metodos com nomes grandes, peque pelo exceso do que pela falha.
+	*Revele a intencao do codigo.
+	
+	Evite palavras que podem ser variaveis ou palavras reservadas.
+	Evite dar nome com tipo da variavel, o tipo nao precise estar no nome.
+	Evite trocadilhos, nao misture idiomas, nao mescle nomes, no maximo usar nomes de patterns.
+	
+	Nao existe um padrao exato a ser seguido, essas dicas sao para ajudar a corrigir pequenos habitos ruins,
+	tentar mensurar o tamaho e responsabilidade, o Solid ajuda com isso, sempre validar se o entendimento esta claro
+	para todos.
+	
 Aula 34: Boas praticas
+
+Boas praticas segundo o livro clean code:
+
+	Nomes das classes devem ser substantivos e nao conter verbos.
+	Ex.: ClienteRepository
+	
+	Nomes dos metodos devem conter verbos de preferencia no infinitivo
+	Ex.: AdicionarClientes
+	
+	
+
 Aula 35: Devo comentar meu codigo?
 Aula 36: Tratamento de erros
 
 Modulo Design Patterns
-Aula 37:
-Aula 38:
+Aula 37: Arquitetura de software
+Aula 38: Encerramento
 Aula 39:
 Aula 40:
