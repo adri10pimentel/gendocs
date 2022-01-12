@@ -530,7 +530,6 @@ ClienteRepository esta mais proximo a infra e banco de dados, enquanto ClienteSe
 principio sendo ferido: um modulo de alto nivel nao deve depender de um modulo de alto nivel.
 
 Solucao:
-
 usamos isp para definir interfaces, pois interfaces especificas sao melhores que uma unica interface.
 
 Interaces:
@@ -576,6 +575,7 @@ explicacao 2: no inicio do codigo da classe temos 2 interface sendo utilizadas c
 pois nao tem implementacao, para isso precisamos passar uma instancia de objeto criado que contenha uma implamentacao e estamos fazendo isso atraves da
 injecao de dependencia no construtor.
 
+Modulo Dependency injection
 Injecao de dependencia e uma forma de aplicar o DIP(aka inversao de controle)
 
 explicacao construtor:
@@ -673,4 +673,125 @@ e menos recomendavel ainda.
 
 esse e reconhecido por muitos, inclusive pelo Eduardo Pires como um anti pattern.
 
+Aula 29:
+N Classes : 1 Interface
 
+Public interface IService{
+	string Retorno();
+}
+
+Public class ServiceA: IService {
+	public string Retorno(){
+		return "A";
+	}
+}
+
+Public class ServiceB: IService {
+	public string Retorno(){
+		return "B";
+	}
+}
+
+Public class ServiceC: IService {
+	public string Retorno(){
+		return "C";
+	}
+}
+
+violacao: ISP.
+
+porem pode acontecer um cenario onde voce precise registrar varias classes com a mesma interface,
+como resolver na injecao de dependencia do .net core?
+
+R: registrar as 3 classes da seguinte forma->
+
+services.AddTransient<ServiceA>();
+services.AddTransient<ServiceB>();
+services.AddTransient<ServiceC>();
+
+apos registrar as 3.
+//delegate
+service.AddTransient<Func<string, IService>>(serviceProvider -> key =>
+{
+	switch(key)
+	{
+		case "A":
+			return serviceProvider.GetService<ServiceA>;
+		case "B":
+			return serviceProvider.GetService<ServiceB>;
+		case "C":
+			return serviceProvider.GetService<ServiceC>;
+		default:
+			return null;
+	}
+});
+
+Ob.: este tipo de implementacao e uma variacao do service locator.
+
+Implementacao no Controller:
+public classe MultipasClassesController : Controller
+{
+	private readonly Func<string, IService> _serviceAcessor;
+	
+	public MultipasClassesController(Func<string, IService> serviceAcessor)
+	{
+		_serviceAcessor = serviceAcessor;
+	}
+	
+	public string Index()
+	{
+		return _serviceAcessor("A").Retorno();
+	}
+}
+
+Obs.: resolver instancias por chave, service locator e um antipattern, design ambigui e o LSP, a substituicao
+de Liskov foi violada.
+
+resolver instancias por chave foi retirada do simple injector, por ser algo errado, porem ha uma maneira de
+se fazer pelo menos, maneira esta que nao e recomendavel.
+
+resolver um problema e depois voltar para resolver.
+
+Modulo Clean Code
+
+Aula 30:
+Apresentacao Clean Code, livro obrigatorio do Uncle Bob.
+
+O conteudo dessa sessao pode causar desconforto.
+
+Clean Code->
+
+"Elegante e eficiente Codigo limpo faz bem uma coisa." Bjarne Stroutrup
+"Simples e direto. Pode ser lido como uma conversa." Grady Booch
+"Parece ter sido escrito por alguem que se importa." Michael Feathers -> criou o nome SOLID junto com Uncle Bob.
+"Cada rotina que voce le faz o que voce espera." Bjarne Ward Cunningham
+
+Aula 31:
+O que e um codigo limpo?
+
+Simples - nao precisa fazer nada alem do necessario e da forma mais simples possivel.
+Direto - direto ao ponto resolvendo com simplicidade
+Eficiente - nao somente no sentido de escrita, mas tambem em performance.
+Sem Duplicidade - nao existe motivos para replicar um codigo.
+Elegante - Nao ha problema em caprichar no codigo, utilizacao correta e padrao de cases e bem identado,
+bonito na hora de ler quando de olhar como ele esta distribuido, se ele possui um bom design ele e elegante
+por si proprio.
+Feito com cuidado - voce percebe que quem escreveu se preocupou com o codigo escrito e nao apenas em entregar 
+a funcionalidade, isso diz muito sobre quem escreveu o codigo.
+Facil de ler - precisa ser especifico e direto de forma simples de ler para nao perder a caracteristica de ser
+um codigo limpo.
+
+"Qualquer tolo consegue escrever codigo que um computador entenda. Bons programadores escrevem codigo que humanos
+conseguem entender." Martin Fowler
+
+Aula 32: Desculpas e responsabilidades
+Aula 33: Como medir um bom codigo?
+Aula 34: Boas praticas
+Aula 35: Devo comentar meu codigo?
+Aula 36: Tratamento de erros
+
+Modulo Design Patterns
+Aula 37:
+Aula 38:
+Aula 39:
+Aula 40:
