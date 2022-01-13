@@ -974,15 +974,101 @@ Boas praticas segundo o livro clean code:
 	Obs.: Arquivos de classes devem conter apenas 1 classe.
 	*Leia o seu metodo de cima para baixo como uma narrativa, ele deve fazer sentido.
 	*Aplique uma boa identacao-> isso diz respeito a hierarquia do processo.
-	
-	
-	
-	
+		
 Aula 35: Devo comentar meu codigo?
+
+	1- Comentarios nao vao ajudar um codigo ruim a ser melhor interpretado, uma vez que a implementacao que precisava clara nao e.
+	2- Um codigo que requer comentarios precisa ser reescrito.->O codigo pode estar muito complexo ou com responsabilidade excessiva.
+	3- Nao deixei trechos de codigo comentados., 
+
+Quando devo comentar?
+
+	1- Aletar consequencias que pode vir a causar->investigando um problema.
+	2- Licencas, direitos autorais, cabecalho, etc.
+	3- Necessidade de explicar uma regra de negocio interna.
+	4- Decisoes de design de codigo. -> usou um antipattern e era a necessidade, de preferencia colocar um todo:, em especial
+	se ao refatorar voce se deparou com um problema, e quem tentar fazer aquilo provavelmente vai se deparar com o mesmo problema.
+	
 Aula 36: Tratamento de erros
 
+1- Boas praticss no tratamento de erros
+	*Tratar e prever possiveis excecoes e de responsabilidade do desenvolvedor.
+	Obs.: Nao encher o codigo de try/catch, criar uma forma global(ex. interceptor) de capturar exceptions e 
+	trata-las por meio de log
+
+	*Retorne exceptions e nao codigos de erros ou mensagem personalizada.
+	Obs.: informacoes que permitam identificar o problema e porque ele ocorreu.
+	
+	*Informe o maximo que puder em sua exceptions
+	Obs.: toda exception tem um rastro do problema, nao mostrar detalhes do erro para o cliente.
+	
+	*Se necessario crie exceptions personalizadas para um problema especifico.
+	Obs.: cria uma classe pagamento exception herdando da exception.
+	boa pratica-> ter um catch especifico pra exceptions especificas e um catch generico para excessoes genericas,
+	dar tratamento personalizado para um problema especifico.
+	
+	*Nao retorne null
+	Ons.: Catch mudo, quando temos uma exception retornando nulo ou nao retornando nada, o usuario que esta
+	utilizando nao vai ter ciencia que houve um problema, e vai continuar gerando mais erros.
+	
+	*Regra dos escoteiros: deixe a area de acampamento mais limpa de como voce a encontrou.
+	Obs.: crie task especifica para refatoracao.
+	
 Modulo Design Patterns
-Aula 37: Arquitetura de software
-Aula 38: Encerramento
+Aula 37: Apresentacao
+
+1- Design Patterns sao padroes de codigo para a solucao de problemas conhecidos.
+2- O objetivo e nao reinventar a roda e aplicar uma solucao com um bom design de codigo.
+3- O conceito de padroes foi introduzido por 4 desenvolvedores intitulados "Gang of four" GoF
+e hoje conta com 23 padroes fundamentais.
+4- Atualmente existem mais de 80 padroes conhecidos que sao em geral variacoes dos 23 patterns do GoF.
+
+os 23 padroes sao:
+
+Abstract Factory - C - Azul
+Adapter - S - Salmao
+Brigde - S - Salmao
+Builder - C - Azul
+Chain of Responsability - B - Verde
+Command - B - Verde
+Composite - S - Salmao
+Decorator - S - Salmao
+Facade - S - Salmao
+Factory Method - C - Azul
+Flyweight - S - Salmao
+Interpreter - B - Verde
+Iterator - B - Verde
+Mediator - B - Verde
+Memento - B - Verde
+Prototype - C - Azul
+Proxy - S - Salmao
+Observer - B - Verde
+Singleton - C - Azul
+State - B - Verde
+Strategy - B - Verde
+Template Method - B - Verde
+Visitor - B - Verde
+
+Os padroes do GoF estao divididos em 3 familias:
+
+Nome								Descricao
+Creational Patterns(Criacao)		Fornecem meios de criacao de um objeto e de como ele sera instanciado.
+Obs.: Aprender a resolver os problemas de como criar objetos da forma correta.
+Meio que concorre com a ideia de injecao de dependencia, mas ao mesmo tempo nao concorre, a ideia e usa-los
+em conjunto.
+
+Structural Patterns(Estrutural)		Tratam da composicao de objetos por herancas e interfaces para diferentes
+									funcionalidades.
+Obs.: Quando precisamos modelar objetos, estes padroes vao ajudar.
+Como montar a composicao de objetos para que atendam a necessidade com um bom design e o polimorfismo.
+
+Behavioral Patterns(Comportamental)	Tratam das interacoes e comunicacao entre os objetos alem da divisao de
+									responsabilidades.
+Obs.: Como os objetos se interagem.
+
+Aula 38: 
 Aula 39:
 Aula 40:
+
+Modulo Arquitetura de software
+Modulo Encerramento
