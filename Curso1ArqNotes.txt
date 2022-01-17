@@ -1066,9 +1066,44 @@ Behavioral Patterns(Comportamental)	Tratam das interacoes e comunicacao entre os
 									responsabilidades.
 Obs.: Como os objetos se interagem.
 
-Aula 38: 
-Aula 39:
-Aula 40:
+Aula 38: Creational Patterns(Criacao)
+
+Abstract factory - Cria uma instancia de diversas familias de classes
+Factory Method - Cria instancias de diversas derivacoes de classes
+Singleton - Cria uma unica instancia que sera utilizada por todos os recursos
+
+doFactory - tem todos os patterns exemplificados em .net.
+
+Obs.: Builder e Prototype nao sao mencionados por nao serem tao relevantes e utilizados, mas estao
+disponiveis no doFactory.com
+
+Builder utilizacao baixa.
+Prototype - utilizacao media, mas no dia dia dos programadores nao e tao presente(aplicacoes corporativas)
+mas esta disponivel no doFactory.com
+
+Aula 39: Abstract factory
+
+Utilizacao: Alta.
+Uma fabrica abstrata -> uma fabrica de fabricas.
+
+Cliente consome a fabrica abstrada
+fabrica abstrata delega a criacao do produto a uma fabrica concreta
+As fabricas que geram produtos A e B podem ter regras especificas.
+O Cliente consome um produto abstrato.
+
+
+
+Aula 40: Factory method
+Aula 41: Singleton
+Aula 42: Structural patterns
+Aula 43: Adapter
+Aula 44: Facade
+Aula 45: Composite
+Aula 46: Behavioral Patterns
+Aula 47: Command
+Aula 48: Strategy
+Aula 49: Observer
+Aula 50: Evite o Patternite
 
 Modulo Arquitetura de software
 Modulo Encerramento
