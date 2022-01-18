@@ -1091,14 +1091,54 @@ fabrica abstrata delega a criacao do produto a uma fabrica concreta
 As fabricas que geram produtos A e B podem ter regras especificas.
 O Cliente consome um produto abstrato.
 
-
-
 Aula 40: Factory method
+
+Utilizacao: Alta.
+
+Faz parte dos padroes criacionais, e pode ser utilizado junto com o Abstract Factory,
+dependendo do cenario.
+
+classe abstrata Creator, ConcreteCreator implementa e cria os produtos,
+a classe que consome a estrutura toma a decisao de qual produto deseja criar.
+
 Aula 41: Singleton
+
+Um padrao da familia dos metodos criacionais, e e um padrao polemico porque, ao mesmo
+tempo que e um padrao do GoF, tambem e considerado por muitos um antipattern.
+
+Utilizacao entre 4 e 5.
+
+ideia central: uma classe que possui uma propriedade instancia, e que tem um metodo
+para criar instancia caso nao tenha sido criada e que devolve a mesma instancia caso
+tenha sido criada.
+
+implementacao exemplo: request para load balance.
+finalidade: ocupar menos memoria quando nao e necessario guardar estado.
+
 Aula 42: Structural patterns
+
+3 mais conhecidos:
+
+Adapter	-	Compatibiliza objetos de interfaces diferentes
+Explicacao: um dos mais famosos.
+Facade - Uma unica classe que representa um subsistema.
+Explicacao: utilizado em modelagens de dominios.
+Composite - Compartilha um objeto em estruturas de arvores que representam hierarquias.
+Explicacao:
+
+Outros Padroes:
+Brigde - media utilizacao, desacoplamento de uma abstracao para uma implementacao possa funcionar
+de forma independente.
+Decorator - medio, adiciona responsabilidades a um objeto de forma dinamica->  como se fosse um extension methods.
+Flyweight - baixa, dar suporte a um grande numero de objetos
+Proxy - medio-alta, classe que implementa uma interface, criar uma classe proxy, cria uma camada de
+aplicacao em cima de outra classe.
+Explicacao: nao sao tao populares
+
 Aula 43: Adapter
 Aula 44: Facade
 Aula 45: Composite
+
 Aula 46: Behavioral Patterns
 Aula 47: Command
 Aula 48: Strategy
