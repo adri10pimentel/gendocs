@@ -1136,8 +1136,55 @@ aplicacao em cima de outra classe.
 Explicacao: nao sao tao populares
 
 Aula 43: Adapter
-Aula 44: Facade
+Utilizacao: entre 4 e 5.
+
+Client consome target
+Target - funcionalidade especifica interface 
+Adapter -
+Adaptee
+
+Entendendo o exemplo:
+TransacaoService representa o Client.
+Ele tem a propriedade readonly ILogger _logger;
+
+ele e instanciado atraves da injecao de dependencia
+e no metodo realizar transacao realiza o log de alguma forma.
+
+Target class -> classe Logger que implementa o ILogger.
+Adaptee class -> LogNetMasterService implementando a interface ILogNetMaster.
+
+Adapter class -> LogAdapter implementa ILogger
+injeta a interface que precisa ser adaptada
+
+nos metodos dessa classe chama os metodos da classe adaptada.
+
+O TransacaoService nao muda.
+
+o consumo do TransacaoService passa a ter 2 possibilidades:
+new TransacaoService(new Logger());
+ou
+new TransacaoService(new LogAdapter(new LogNetMasterService()));
+
+Aula 44: Facade "Fecade" = Faixada
+Utilizacao: 5
+Um dos padroes mais utilizados para quem trabalha com modelagem de dominio.
+ideia: uma unica classe que serve como subsistema da aplicacao.
+
+objetivo: tornar possivel uma personalizacao, ou adaptar uma forma de trabalhar
+sem fujir da modelagem de objetos.
+
+A Facade cria uma classe fachada, onde ele cria uma traducao do seu modelo para os
+objetos e mundo externo, isso facilita muito, pois so tem 1 ponto de manutencao.
+
+entendendo o exemplo:
+A classe de dominio nao tem nenhuma dependencia ou referencia com alguma implementacao
+ou api do Paypal.
+
+A Faixada e o unico ponto de manutenco.
+
 Aula 45: Composite
+
+
 
 Aula 46: Behavioral Patterns
 Aula 47: Command
@@ -1146,4 +1193,17 @@ Aula 49: Observer
 Aula 50: Evite o Patternite
 
 Modulo Arquitetura de software
+Aula 51: 
+Aula 52: 
+Aula 53: 
+Aula 54: 
+Aula 55: 
+Aula 56: 
+Aula 57: 
+Aula 58: 
+Aula 59: 
+Aula 60: 
+Aula 61: 
+Aula 62: 
 Modulo Encerramento
+Aula 63: 
